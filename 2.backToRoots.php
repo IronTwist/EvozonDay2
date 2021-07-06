@@ -12,11 +12,11 @@
 echo 'Numbers </br>';
 
 
-function getNumbers()
+function displayNumbers($filename): void
 {
     $zero=$one=$two=$tree=$four=$five=$six=$seven=$eight=$nine= false;
 
-    $file = fopen("numbers.txt", "r");
+    $file = fopen($filename, "r");
 
     if ($file) {
         while (($buffer = fgetc($file)) != false) {
@@ -100,15 +100,12 @@ function getNumbers()
     if($eight){
         echo 8 . chr(32);
     }
+
     if($nine){
         echo 9 . chr(32);
     }
 
 }
 
-getNumbers();
+displayNumbers("numbers.txt");
 
-
-//echo "$stream </br>";
-//
-//var_dump($stream);
