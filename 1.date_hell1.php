@@ -9,34 +9,34 @@
 
 function dateHellCheckIfOverlap(string $startDateTime1, string $endDateTime1, string $startDateTime2, string $endDateTime2):bool
 {
-    $firstTwoDatesCheck = checkIfDateIsGreater($startDateTime1, $endDateTime1);
-    $secondTwoDatesCheck = checkIfDateIsGreater($startDateTime2, $endDateTime2);
+    $check1 = checkIfDateIsGreater($startDateTime1, $endDateTime1);
+    $check2 = checkIfDateIsGreater($startDateTime2, $endDateTime2);
 
-    if($firstTwoDatesCheck == true && $secondTwoDatesCheck == true) {
-        if ($startDateTime1 >= $startDateTime2) {
-            return false;
-        }
+    $check3 = checkIfDateIsGreater($startDateTime1, $startDateTime2);
+    $check4 = checkIfDateIsGreater($startDateTime1, $endDateTime2);
 
-        if ($endDateTime1 >= $startDateTime2) {
-            return false;
-        }
+    $check5 = checkIfDateIsGreater($endDateTime1, $startDateTime2);
+    $check6 = checkIfDateIsGreater($endDateTime1, $endDateTime2);
+
+    if($check1 == true || $check2 == true || $check3 == true || $check4 == true || $check5 == true || $check6 == true){
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 function checkIfDateIsGreater(string $start, string $end):bool
 {
     if($start >= $end){
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
-$date1 = '10-05-2021 10:00:00';
-$date2 = '10-05-2021 20:00:00';
-$date3 = '10-05-2021 19:00:00';
-$date4 = '10-05-2021 24:00:00';
+$date1 = '11-05-2021 19:00:00';
+$date2 = '13-05-2021 20:00:00';
+$date3 = '13-05-2021 21:00:00';
+$date4 = '13-05-2021 22:00:00';
 
 
 $result = dateHellCheckIfOverlap($date1, $date2, $date3, $date4);
