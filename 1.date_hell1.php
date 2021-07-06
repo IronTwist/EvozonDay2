@@ -7,7 +7,7 @@
 <!--When I get your solution, I'll try to break it so make sure your function is bulletproof!-->
 <?php
 
-function dateHell(string $startDateTime1, string $endDateTime1, string $startDateTime2, string $endDateTime2):bool
+function dateHellCheckIfOverlap(string $startDateTime1, string $endDateTime1, string $startDateTime2, string $endDateTime2):bool
 {
     $firstTwoDatesCheck = checkIfDateIsGreater($startDateTime1, $endDateTime1);
     $secondTwoDatesCheck = checkIfDateIsGreater($startDateTime2, $endDateTime2);
