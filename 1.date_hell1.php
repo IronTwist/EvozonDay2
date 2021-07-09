@@ -30,13 +30,21 @@ function checkIfDateIsGreater(string $start, string $end):bool
     if($start >= $end){
         return true;
     }
+
+    $start =str_split(date($start), 10);
+    $end = str_split(date($end), 10) ;
+    
+    if(date($start[0]) > date($end[0])){
+        return true;
+    }
+
     return false;
 }
 
-$date1 = '11-05-2021 19:00:00';
-$date2 = '13-05-2021 20:00:00';
-$date3 = '13-05-2021 21:00:00';
-$date4 = '13-05-2021 22:00:00';
+$date1 = '13-03-2021 14:00:00';
+$date2 = '13-05-2022 20:00:00';
+$date3 = '13-05-2022 21:00:00';
+$date4 = '13-05-2022 22:00:00';
 
 
 $result = dateHellCheckIfOverlap($date1, $date2, $date3, $date4);
